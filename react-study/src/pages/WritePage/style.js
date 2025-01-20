@@ -1,33 +1,25 @@
-.search-items {
+import { css } from "@emotion/react";
+
+export const headerLayout = css`
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 10px;
     width: 100%;
-
-    & > * {
-        margin-left: 5px;
-    }
-
-    & > select,
-    & > input {
-        box-sizing: border-box;
-        outline: none;
-        border: 1px solid #dbdbdb;
-        padding: 5px 10px;
-    }
 
     & > button {
         box-sizing: border-box;
         border: 1px solid #dbdbdb;
-        padding: 5px 15px;
+        padding: 10px 20px;
         background-color: #ffffff;
-        font-size: 12px;
+        font-weight: 600;
         cursor: pointer;
 
         &:hover {
             background-color: #fafafa;
         }
+
         &:active {
             background-color: #eeeeee;
         }
     }
-}
+`;

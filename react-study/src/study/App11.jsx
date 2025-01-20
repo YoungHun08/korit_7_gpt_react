@@ -80,11 +80,21 @@ function App11(props) {
         }
     });
 
+    const then = (fx) => {
+        return new Promise((resolve) => resolve(fx()));
+    }
+
+    then(() => {
+        return {
+            response: {} 
+        }
+    })
+
     p3.then((r) => {
         console.log(r);
-        if(true) {
-            throw new Error("오류!!!");
-        }
+        // if(true) {
+        //     throw new Error("오류!!!");
+        // }
         return {
             response: {
                 ...r.response,

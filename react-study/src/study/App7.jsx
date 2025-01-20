@@ -88,7 +88,6 @@ function App7(props) {
         setBookTableList(foundBooks);
     }
 
-
     return (
         <div className='container'>
             <div>

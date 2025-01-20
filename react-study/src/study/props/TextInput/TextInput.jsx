@@ -1,12 +1,13 @@
-function Textinput({id, text}) {
+function TextInput({id, text}) {
     const user = {
-        username : "test",
-        password : "1234",
-        name : "김준일",
+        username: "test",
+        password: "1234",
+        name: "김준일",
     };
 
     const {username, name} = user;
     console.log(username);
+
 
     return <div>
         <label htmlFor={id}>{text}</label>
@@ -14,4 +15,4 @@ function Textinput({id, text}) {
     </div>
 }
 
-export default Textinput;
+export default TextInput;

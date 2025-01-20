@@ -4,7 +4,6 @@ function Hello() {
         <h1>Hello react!!</h1>
         <input type="text" />
     </>
-    
 }
 
 export default Hello;

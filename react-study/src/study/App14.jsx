@@ -6,21 +6,27 @@ function App14(props) {
     const handleRequestOnClick = async () => {
         let response = null;
         try {
-            response = await axios.get("http://localhost:8080/servlet_study_war/api/user")
+            response = await axios.get("http://localhost:8080/servlet_study_war/api/user");
             console.log(response);
             console.log(response.data.username);
-        } catch (error) {
+        } catch(error) {
             console.error(error);
-        };
+        }
     }
 
-    const handleBookRequestOnClick = () => {
-        
+    const handleBookRequestOnClick = async () => {
+        let response = null;
+        try {
+            response = await axios.get("http://localhost:8080/servlet_study_war/api/book");
+            console.log(response);
+        } catch(error) {
+            console.error(error);
+        }
     }
 
     /**
      * BookRestServlet(/api/book)
-     * get 요청
+     * get요청
      * bookId,
      * bookName,
      * author,
@@ -36,8 +42,5 @@ function App14(props) {
         </div>
     );
 }
-
-
-
 
 export default App14;

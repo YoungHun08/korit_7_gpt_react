@@ -1,26 +1,26 @@
-import { useState } from "react";
+import { useState, useTransition } from "react";
 
-/*
-    useState 상태관리
-*/
-
+/**
+ * useState 상태관리
+ */
 function App2() {
+    // const numState = useState(0);
+    // const num = numState[0];
+    // const setNum = numState[1];
     const [ num, setNum ] = useState(0);
 
-    let number = 0;
-
-    const handleIncreaseClick = () => {
+    const handleIncreaseOnClick = () => {
         setNum(num + 1);
     }
 
-    const handleDecreaseClick = () => {
+    const handleDecreaseOnClick = () => {
         setNum(num - 1);
     }
 
     return <>
         <h1>{num}</h1>
-        <button onClick={handleIncreaseClick}>1증가</button>
-        <button onClick={handleDecreaseClick}>1감소</button>
+        <button onClick={handleIncreaseOnClick}>1증가</button>
+        <button onClick={handleDecreaseOnClick}>1감소</button>
     </>
 }
 

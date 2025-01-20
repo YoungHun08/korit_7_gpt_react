@@ -4,32 +4,32 @@ import "./style.css";
 function BookRegister({ bookList, setBookList }) {
 
     const [ registerInputValue, setRegisterInputValue ] = useState({
-        bookName: "",
-        author: "",
-        publisher: "",
-    });
-
-    const handleRegisterInputOnChange = (e) => {
-        setRegisterInputValue({
-            ...registerInputValue,
-            [e.target.name]: e.target.value,
-        });
-    }
-
-    const handleRegisterButtonOnClick = () => {
-        setBookList([
-            ...bookList,
-            registerInputValue,
-        ]);
-
-        alert("등록 완료.");
-
-        setRegisterInputValue({
             bookName: "",
             author: "",
             publisher: "",
         });
-    }
+    
+        const handleRegisterInputOnChange = (e) => {
+            setRegisterInputValue({
+                ...registerInputValue,
+                [e.target.name]: e.target.value,
+            });
+        }
+    
+        const handleRegisterButtonOnClick = () => {
+            setBookList([
+                ...bookList,
+                registerInputValue,
+            ]);
+    
+            alert("등록 완료.");
+    
+            setRegisterInputValue({
+                bookName: "",
+                author: "",
+                publisher: "",
+            });
+        }
 
     return (
         <div>
