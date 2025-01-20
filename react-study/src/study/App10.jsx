@@ -30,7 +30,7 @@ function App10(props) {
     }, [num1, num2]);
 
     useEffect(() => {
-        console.log("마운트!!");
+        console.log("마운트!!!!");
     }, []);
 
     const handleOnClick = () => {
