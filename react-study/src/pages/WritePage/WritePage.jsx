@@ -59,7 +59,7 @@ function WritePage(props) {
         try {
             const response = await axios.post("http://localhost:8080/servlet_study_war/api/board", inputValue);
         } catch(error) {
-
+            console.error(error);
         }
 
     }
