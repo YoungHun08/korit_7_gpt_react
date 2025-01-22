@@ -11,15 +11,19 @@ function ListPage(props) {
             </div>
             <div>
                 <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>TITLE</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>TITLE</th>
+                        </tr>
+                    </thead>
                 </table>
-                <div></div>
+                <div>
+
+                </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default ListPage;

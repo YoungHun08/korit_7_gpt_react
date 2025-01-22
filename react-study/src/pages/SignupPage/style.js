@@ -28,7 +28,7 @@ export const main = css`
 
     & > button {
         box-sizing: border-box;
-        margin-bottom: 10px;
+        margin-top: 20px;
         outline: none;
         border: 1px solid #dbdbdb;
         padding: 10px 20px;
@@ -45,7 +45,6 @@ export const main = css`
             background-color: #777777;
         }
     }
-
 `;
 
 export const footer = css`

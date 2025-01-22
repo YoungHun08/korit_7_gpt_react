@@ -1,18 +1,25 @@
 /**@jsxImportSource @emotion/react */
-import axios from 'axios';
+import { Link, useSearchParams } from 'react-router-dom';
 import * as s from './style';
-import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 
 function SigninPage(props) {
-    const [ inputRefs ] = useState([ useRef(), useRef(), useRef(), useRef() ])
+    const [ searchParams ] = useSearchParams();
+
+    const [ inputRefs ] = useState([ useRef(), useRef(), useRef(), useRef() ]);
     const [ buttonRefs ] = useState([ useRef() ]);
     const [ inputValue, setInputValue ] = useState({
-        username : "",
-        password : "",
-        name : "",
-        email: "",
-    });
+        username: "",
+        password: "",
+    }); 
+
+    useEffect(() => {
+        setInputValue({
+            ...inputValue,
+            username: searchParams.get("username"),
+        })
+    }, [searchParams.get("username")]); 
 
     const handleInputOnChange = (e) => {
         setInputValue({
@@ -21,15 +28,16 @@ function SigninPage(props) {
         });
     }
 
-    const handleInputOnkeyDown = (e) => {
+    const handleInputOnKeyDown = (e) => {
         if(e.keyCode === 13) {
             let foundIndex = -1;
-            for(let i = 0; i <inputRefs.length; i++) {
+            for(let i = 0; i < inputRefs.length; i++) {
                 if(inputRefs[i].current === e.target) {
                     foundIndex = i;
                     break;
                 }
             }
+
             if(foundIndex === inputRefs.length - 1) {
                 buttonRefs[0].current.click();
                 return;
@@ -41,31 +49,31 @@ function SigninPage(props) {
 
     const handleSigninSubmitOnClick = async () => {
         try {
-            const response = axios.post("http://localhost:8080/servlet_study_war/api/siguin", inputValue);
+            const response = await axios.post("http://localhost:8080/servlet_study_war/api/signin", inputValue);
+            console.log(response);
         } catch (error) {
-            
+            console.error(error);
         }
     }
-
 
     return (
         <div css={s.layout}>
             <div css={s.main}>
-                <input type="text"
+                <input type="text" 
                     placeholder='사용자 이름' 
                     name='username' 
                     value={inputValue.username} 
                     onChange={handleInputOnChange} 
-                    onKeyDown={handleInputOnkeyDown} 
+                    onKeyDown={handleInputOnKeyDown} 
                     ref={ inputRefs[0] } />
                 <input type="password" 
                     placeholder='비밀번호' 
                     name='password' 
-                    value={inputValue.password} 
-                    onChange={handleInputOnChange} 
-                    onKeyDown={handleInputOnkeyDown} 
+                    value={ inputValue.password } 
+                    onChange={ handleInputOnChange } 
+                    onKeyDown={ handleInputOnKeyDown } 
                     ref={ inputRefs[1] } />
-                <button onClick={handleSigninSubmitOnClick} ref={ buttonRefs[0] }>가입</button>
+                <button onClick={handleSigninSubmitOnClick} ref={ buttonRefs[0] }>로그인</button>
             </div>
             <div css={s.footer}>
                 <span>계정이 없으신가요? </span>

@@ -19,8 +19,8 @@ function App() {
           <Route path="/" element={ <IndexPage /> } />
           <Route path="/write" element={ <WritePage /> } />
           <Route path="/list" element={ <ListPage /> } />
-          <Route path="/Signup" element={ <SignupPage /> } />
-          <Route path="/Signin" element={ <SigninPage /> } />
+          <Route path="/signup" element={ <SignupPage /> } />
+          <Route path="/signin" element={ <SigninPage /> } />
         </Routes>
       </MainLayout>
     </>
